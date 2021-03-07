@@ -1,5 +1,4 @@
 using Flunt.Validations;
-using PaymentContext.Domain.Enums;
 using PaymentContext.Shared.ValueObjects;
 
 namespace PaymentContext.Domain.ValueObjects
@@ -32,14 +31,13 @@ namespace PaymentContext.Domain.ValueObjects
 
             AddNotifications(
                 new Contract<Address>()
-                .Requires()
-                .IsNullOrEmpty(this.Street, "Address.Street", "Invalid street")
-                .IsNullOrEmpty(this.Number, "Address.Number", "Invalid number")
-                .IsNullOrEmpty(this.Neighborhood, "Address.Neighborhood", "Invalid neighborhood")
-                .IsNullOrEmpty(this.City, "Address.City", "Invalid city")
-                .IsNullOrEmpty(this.State, "Address.State", "Invalid state")
-                .IsNullOrEmpty(this.Country, "Address.Country", "Invalid country")
-                .IsNullOrEmpty(this.ZipCode, "Address.ZipCode", "Invalid zipCode")
+                .IsNotNullOrEmpty(street, "Address.Street", "Invalid street")
+                .IsNotNullOrEmpty(number, "Address.Number", "Invalid number")
+                .IsNotNullOrEmpty(neighborhood, "Address.Neighborhood", "Invalid neighborhood")
+                .IsNotNullOrEmpty(city, "Address.City", "Invalid city")
+                .IsNotNullOrEmpty(state, "Address.State", "Invalid state")
+                .IsNotNullOrEmpty(country, "Address.Country", "Invalid country")
+                .IsNotNullOrEmpty(zipCode, "Address.ZipCode", "Invalid zipCode")
             );
         }
     }

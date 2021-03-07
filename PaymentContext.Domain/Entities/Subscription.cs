@@ -33,7 +33,6 @@ namespace PaymentContext.Domain.Entities
         {
             AddNotifications(
                 new Contract<Subscription>()
-                .Requires()
                 .IsGreaterThan(DateTime.Now, payment.PaidDate, "Subscription.Payments", "Payment date must be in the future")
             );
 
