@@ -20,5 +20,10 @@ namespace PaymentContext.Domain.ValueObjects
                 .IsNotNullOrEmpty(lastName, "Name.LastName", "Invalid last name")
             );
         }
+
+        public override string ToString()
+        {
+            return $"{this.FirstName} {this.LastName}";
+        }
     }
 }

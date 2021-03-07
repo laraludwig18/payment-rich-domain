@@ -44,7 +44,7 @@ namespace PaymentContext.Domain.Entities
             this.Payer = payer;
             this.Address = address;
             this.Email = email;
-
+            
             AddNotifications(
                 new Contract<Payment>()
                 .IsLowerOrEqualsThan(0, total, "Payment.Total", "Total must be greater than 0")
